@@ -48,9 +48,10 @@
 
 			if ($errors < 1) {
 				$formcontent="From: $name \n Message: $message";
-				$recipient = "nikifoth@icloud.com";
+				$recipient = "youremail@email.com";
 				$subject = "Contact Form";
-				$mailheader = "From: $email \r\n";
+				$mailheader = "From: name <youremail@email.com> \r\n" .
+                    "Reply-To: $name <$email> \r\n";
 				mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
 
 				echo '<p class="thankyou-message">Thanks for your message, I will get back to you as soon as I can.</p>';
